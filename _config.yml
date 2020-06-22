@@ -1,0 +1,34 @@
+# Permalinks
+permalink:           pretty
+
+# Setup
+title:               Kankshi Dhar
+tagline:             Talk Data To Me
+url:                 https://kankshidhar.com
+baseurl:             ""
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+# About/contact
+author:
+  name:              Kankshi Dhar
+  url:               https://linkedin.com/in/kankshi-dhar
+  email:             kankshi01@outlook.com
+# Custom vars
+version:             2.0.1
+github:
+  repo:              https://github.com/kankshidhar/kankshidhar.github.io
+google_analytics:    
+twitter:             kankshi01
+github:              kankshidhar
+# dribbble:            jamigibbs
+
+# Gems
+plugins:
+  # - jekyll-paginate
+  # - jekyll-gist
