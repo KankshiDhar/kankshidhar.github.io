@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>
-    
-      Kankshi Dhar &middot; Talk Data To Me
-    
-  </title>
-
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="shortcut icon" href="/public/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Kankshi Dhar" href="/atom.xml">
-</head>
-
+{% include head.html %}
 
 <body>
 
@@ -23,7 +9,7 @@
     <div class="large-12 large-centered columns">
 
       <header class="masthead">
-        <img src="/public/profile.png" alt="Kankshi Dhar">
+        <img src="{{ site.baseurl }}/public/profile.png" alt="Kankshi Dhar">
       </header>
 
     </div>
@@ -36,7 +22,7 @@
       <div class="content-section">
 
         <p align="justify">
-          Twining the strings of Data for Information 
+          Twining the strings of Data for Information.
         </p>
         <p align="justify">
 
@@ -58,16 +44,30 @@
 
           And I play for pulitzer.
         </p>
-        
         <p>
-          Find my resume <a href="/public/Kankshi_Dhar_Resume.pdf">here!</a>
+          Find my resume <a href="{{ site.baseurl }}/files/Kankshi_Dhar_Resume.pdf">here!</a>
         </p>
 
       </div>
 
       <main>
         <!-- <h2>Latest Work</h2> -->
-        <!--  -->
+        <!-- {% for post in site.posts %}
+          <div class="project-post">
+            <h3><a href="{{ post.site }}">{{ post.title }}</a></h3>
+
+            {{ post.content }}
+
+            <ul>
+              <li><a href="{{ post.git }}"><i class="fa fa-github"></i></a></li>
+              {% if post.site %}
+              <li><a href="{{ post.site }}"><i class="fa fa-link"></i></a></li>
+              {% endif %}
+            </ul>
+
+            <hr />
+          </div>
+        {% endfor %} -->
       </main>
 
       <footer>
@@ -76,13 +76,12 @@
         <p>
           Send me an
           <a href="mailto:kankshi01@outlook.com?Subject=Hello,%20Kankshi!">email</a>. I’m also on
-          <a href="https://github.com/kankshidhar">Github</a>, 
-          <a href="https://www.linkedin.com/in/kankshi-dhar">Linkedin</a> and
-          <a href="https://www.twitter.com/kankshi_">Twitter</a> if you're into that.
-        </p>
+          <a href="https://github.com/kankshidhar">Github</a> and
+          <a href="https://www.linkedin.com/in/kankshi-dhar">Linkedin</a> and 
+          <a href="https://www.twitter.com/kankshi_">Twitter</a> if you're into that.</p>
 
         <p class="copyright">
-          <!-- &copy; <time datetime="2020-06-21T16:39:59-04:00">2020</time>. -->
+          <!-- &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. -->
           This site is developed using a Jekyll template. You're welcome to
           <a href="https://github.com/jamigibbs/portfolio">use it too</a>!
         </p>
@@ -93,20 +92,35 @@
     <div class="large-2 large-offset-1 columns social">
       <ul>
         <li>
-          <a href="https://github.com/kankshidhar">
+          <a href="https://github.com/{{ site.github }}">
             <i class="fa fa-github"></i>
           </a>
         </li>
         <li>
-          <a href="https://linkedin.com/in/kankshi-dhar">
+          <a href="https://linkedin.com/in/{{ site.linkedin }}">
             <i class="fa fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/{{ site.twitter }}">
+            <i class="fa fa-twitter"></i>
           </a>
         </li>
       </ul>
     </div>
   </div>
 
-  
+  {% if site.google_analytics %}
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview');
+  </script> {% endif %}
 
 </body>
 
